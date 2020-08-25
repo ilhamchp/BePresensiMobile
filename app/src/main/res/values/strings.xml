@@ -4,4 +4,8 @@
     <string name="profil">Profil</string>
     <string name="riwayat">Riwayat</string>
     <string name="surat">Surat</string>
+    <string name="fragment_home">Home Fragment</string>
+    <string name="fragment_surat">Surat Fragment</string>
+    <string name="fragment_profil">Profil Fragment</string>
+    <string name="fragment_riwayat">Riwayat Fragment</string>
 </resources>

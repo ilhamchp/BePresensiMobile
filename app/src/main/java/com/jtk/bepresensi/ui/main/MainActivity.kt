@@ -1,56 +1,64 @@
 package com.jtk.bepresensi.ui.main
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.bottomnavigation.BottomNavigationMenu
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jtk.bepresensi.R
-import com.jtk.bepresensi.ui.home.HomeActivity
-import com.jtk.bepresensi.ui.profil.ProfilActivity
-import com.jtk.bepresensi.ui.riwayat.RiwayatActivity
-import com.jtk.bepresensi.ui.surat.SuratActivity
+import com.jtk.bepresensi.ui.home.HomeFragment
+import com.jtk.bepresensi.ui.profil.ProfilFragment
+import com.jtk.bepresensi.ui.riwayat.RiwayatFragment
+import com.jtk.bepresensi.ui.surat.SuratFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity(), MainContract.View{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        bottom_navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
-        //set default fragment on start
-        replaceFragment(HomeActivity())
+        initView()
     }
 
-    //Bottom navigation ketika diklik
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when(item.itemId){
-            R.id.bottomNavigationHome ->{
-                replaceFragment(HomeActivity())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.bottomNavigationProfil ->{
-                replaceFragment(ProfilActivity())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.bottomNavigationRiwayat ->{
-                replaceFragment(RiwayatActivity())
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.bottomNavigationSurat ->{
-                replaceFragment(SuratActivity())
-                return@OnNavigationItemSelectedListener true
+    fun initView(){
+        //set default fragment on start
+        replaceFragment(HomeFragment())
+
+        //Bottom navigation ketika diklik
+        bottom_navigation.setOnNavigationItemSelectedListener{
+            when(it.itemId){
+                R.id.bottomNavigationHome ->{
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.bottomNavigationProfil ->{
+                    replaceFragment(ProfilFragment())
+                    true
+                }
+                R.id.bottomNavigationRiwayat ->{
+                    replaceFragment(RiwayatFragment())
+                    true
+                }
+                R.id.bottomNavigationSurat ->{
+                    replaceFragment(SuratFragment())
+                    true
+                }
+                else-> false
             }
         }
-        false
+
+        // Bottom navigation jika klik di fragment yang aktif
+        bottom_navigation.setOnNavigationItemReselectedListener {
+            //do nothing
+        }
+
     }
 
-    private fun replaceFragment(fragment: Fragment){
+
+    override fun replaceFragment(fragment: Fragment) {
         val fragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragment_container, fragment)
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-        fragmentTransaction.commit()
-    }
+        fragmentTransaction.commit()    }
 }
