@@ -8,4 +8,15 @@
     <string name="fragment_surat">Surat Fragment</string>
     <string name="fragment_profil">Profil Fragment</string>
     <string name="fragment_riwayat">Riwayat Fragment</string>
+    <string name="dummy_matakuliah">Dasar - Dasar Pemrograman</string>
+    <string name="dummy_waktu">07.00 – 08.40</string>
+    <string name="title_waktu">Waktu:</string>
+    <string name="title_dosen">Dosen:</string>
+    <string name="dummy_dosen">Santi Sundari</string>
+    <string name="title_hadir">Hadir:</string>
+    <string name="dummy_hadir">2 dari 2 sesi</string>
+    <string name="btn_presensi">Presensi</string>
+    <string name="btn_detail_presensi">Detail Presensi</string>
+    <string name="dummy_full_date">Senin, 30 Desember 2020</string>
+    <string name="dummy_keterangan">Terdapat 4 matakuliah hari ini</string>
 </resources>
