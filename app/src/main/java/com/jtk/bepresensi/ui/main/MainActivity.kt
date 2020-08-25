@@ -11,72 +11,46 @@ import com.jtk.bepresensi.ui.home.HomeActivity
 import com.jtk.bepresensi.ui.profil.ProfilActivity
 import com.jtk.bepresensi.ui.riwayat.RiwayatActivity
 import com.jtk.bepresensi.ui.surat.SuratActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(){
-
-    lateinit var homeFragment: HomeActivity
-    lateinit var profilFragment: ProfilActivity
-    lateinit var riwayatFragment: RiwayatActivity
-    lateinit var suratFragment: SuratActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        bottom_navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         //set default fragment on start
-        homeFragment = HomeActivity()
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragment_container, homeFragment)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .commit()
+        replaceFragment(HomeActivity())
+    }
 
-        //fragment yang muncul ketika icon bottom navigation diklik
-        val bottomNav : BottomNavigationView = findViewById(R.id.bottom_navigation)
-        bottomNav.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId){
-
-                //Home
-                R.id.bottomNavigationHome -> {
-                    homeFragment = HomeActivity()
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, homeFragment)
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .commit()
-                }
-
-                //Profil
-                R.id.bottomNavigationProfil -> {
-                    profilFragment = ProfilActivity()
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, profilFragment)
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .commit()
-                }
-
-                //Riwayat
-                R.id.bottomNavigationRiwayat -> {
-                    riwayatFragment = RiwayatActivity()
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, riwayatFragment)
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .commit()
-                }
-
-                //Surat
-                R.id.bottomNavigationSurat -> {
-                    suratFragment = SuratActivity()
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, suratFragment)
-                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                        .commit()
-                }
+    //Bottom navigation ketika diklik
+    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when(item.itemId){
+            R.id.bottomNavigationHome ->{
+                replaceFragment(HomeActivity())
+                return@OnNavigationItemSelectedListener true
             }
-            true
+            R.id.bottomNavigationProfil ->{
+                replaceFragment(ProfilActivity())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.bottomNavigationRiwayat ->{
+                replaceFragment(RiwayatActivity())
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.bottomNavigationSurat ->{
+                replaceFragment(SuratActivity())
+                return@OnNavigationItemSelectedListener true
+            }
         }
+        false
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_container, fragment)
+        fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+        fragmentTransaction.commit()
     }
 }
