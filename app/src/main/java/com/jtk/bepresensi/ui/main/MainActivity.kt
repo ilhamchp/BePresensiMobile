@@ -1,61 +1,82 @@
 package com.jtk.bepresensi.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.jtk.bepresensi.R
-import com.jtk.bepresensi.di.component.DaggerActivityComponent
-import com.jtk.bepresensi.di.module.ActivityModule
-import javax.inject.Inject
-import android.content.Intent
-import android.widget.Toast
-import com.jtk.bepresensi.models.Comics
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_main.*
+import com.jtk.bepresensi.ui.home.HomeActivity
+import com.jtk.bepresensi.ui.profil.ProfilActivity
+import com.jtk.bepresensi.ui.riwayat.RiwayatActivity
+import com.jtk.bepresensi.ui.surat.SuratActivity
 
+class MainActivity : AppCompatActivity(){
 
-
-class MainActivity : AppCompatActivity(), MainContract.View {
-
-    @Inject
-    lateinit var presenter: MainContract.Presenter
+    lateinit var homeFragment: HomeActivity
+    lateinit var profilFragment: ProfilActivity
+    lateinit var riwayatFragment: RiwayatActivity
+    lateinit var suratFragment: SuratActivity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        injectDependency()
-        presenter.attach(this)
-        initView()
-    }
 
-    private fun initView(){
-        btnNumber.setOnClickListener {
+        //set default fragment on start
+        homeFragment = HomeActivity()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, homeFragment)
+            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            .commit()
 
-            //cek text kosong atau tidak
-            if (txtNumber.text.toString().isEmpty()){
-                Toast.makeText(this, "Text tidak boleh kosong", Toast.LENGTH_LONG).show()
-            } else {
-                //lakukan pemanggilan api
-                presenter.getComic(nomor = txtNumber.text.toString().toInt())
+        //fragment yang muncul ketika icon bottom navigation diklik
+        val bottomNav : BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNav.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId){
+
+                //Home
+                R.id.bottomNavigationHome -> {
+                    homeFragment = HomeActivity()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, homeFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                //Profil
+                R.id.bottomNavigationProfil -> {
+                    profilFragment = ProfilActivity()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, profilFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                //Riwayat
+                R.id.bottomNavigationRiwayat -> {
+                    riwayatFragment = RiwayatActivity()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, riwayatFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
+
+                //Surat
+                R.id.bottomNavigationSurat -> {
+                    suratFragment = SuratActivity()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, suratFragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .commit()
+                }
             }
+            true
         }
-    }
-
-    private fun injectDependency() {
-
-        val activityComponent = DaggerActivityComponent.builder()
-            .activityModule(ActivityModule(this))
-            .build()
-
-        activityComponent.inject(this)
-    }
-
-    override fun onGetComicSuccess(comic: Comics) {
-        judulComic.text = comic.title
-        tahunComic.text = comic.year
-        Picasso.get().load(comic.gambar).into(gambarComic)
-    }
-
-    override fun onDomainError(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 }
