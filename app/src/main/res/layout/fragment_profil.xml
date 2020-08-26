@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Card Profil -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardProfil"
             android:layout_width="match_parent"
@@ -24,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
+                <!-- Foto Profil -->
                 <ImageView
                     android:id="@+id/imgFoto"
                     android:layout_width="120dp"
@@ -42,7 +43,7 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Title, secondary and supporting text -->
+                    <!-- Role User -->
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/tvRole"
                         android:layout_width="wrap_content"
@@ -52,8 +53,9 @@
                         android:text="@string/dummy_role_mahasiswa"
                         android:textAppearance="?attr/textAppearanceOverline" />
 
+                    <!-- Nama User -->
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tvTglSurat"
+                        android:id="@+id/tvNama"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
@@ -62,8 +64,9 @@
                         android:text="@string/dummy_nama"
                         android:textAppearance="?attr/textAppearanceHeadline5" />
 
+                    <!-- NIM User -->
                     <com.google.android.material.chip.Chip
-                        android:id="@+id/chipNIM"
+                        android:id="@+id/chipIDUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/dummy_nim" />
@@ -71,6 +74,7 @@
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Email User -->
         <com.google.android.material.chip.Chip
             android:id="@+id/chipEmail"
             android:layout_width="wrap_content"
@@ -82,7 +86,10 @@
             android:text="@string/dummy_email"
             app:chipIcon="@drawable/ic_baseline_mail" />
 
+
+        <!-- Rekap Kehadiran -->
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvRekap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/def_margin_near"
@@ -92,19 +99,21 @@
             android:textAppearance="?attr/textAppearanceBody2" />
 
         <TableLayout
+            android:id="@+id/layoutRekap"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:stretchColumns="*"
             android:layout_margin="@dimen/def_margin_near">
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent">
 
+                <!-- Card Rekap Sakit -->
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
-                    android:layout_weight="1">
+                    android:layout_marginEnd="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -122,7 +131,7 @@
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tvJumlahSakit"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ellipsize="marquee"
                             android:marqueeRepeatLimit="marquee_forever"
@@ -133,11 +142,11 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- Card Rekap Izin -->
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1">
+                    android:layout_marginStart="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -155,7 +164,7 @@
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tvJumlahIzin"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ellipsize="marquee"
                             android:marqueeRepeatLimit="marquee_forever"
@@ -168,14 +177,15 @@
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/def_margin_near">
 
+                <!-- Card Rekap Alfa -->
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2">
+                    android:layout_marginEnd="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -185,7 +195,7 @@
 
                         <!-- Title and secondary text -->
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:singleLine="true"
@@ -205,11 +215,11 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+                <!-- Card Status Rekap -->
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_weight="1">
+                    android:layout_marginStart="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -219,7 +229,7 @@
 
                         <!-- Title and secondary text -->
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:singleLine="true"
@@ -240,5 +250,23 @@
                 </com.google.android.material.card.MaterialCardView>
             </TableRow>
         </TableLayout>
+        <!-- Button Atur Toleransi Keterlambatan -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/def_margin_near"
+            android:layout_marginEnd="@dimen/def_margin_near"
+            app:backgroundTint="@color/colorSecondary"
+            android:text="@string/title_atur_toleransi"
+            />
+        <!-- Button Logout -->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/def_margin_near"
+            android:layout_marginEnd="@dimen/def_margin_near"
+            app:backgroundTint="@color/red"
+            android:text="@string/title_keluar"
+            />
     </LinearLayout>
 </ScrollView>

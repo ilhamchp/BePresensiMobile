@@ -43,4 +43,6 @@
     <string name="num_0">0</string>
     <string name="title_status_only">Status</string>
     <string name="dummy_status_aman">Aman</string>
+    <string name="title_atur_toleransi">Atur Toleransi Keterlambatan</string>
+    <string name="title_keluar">Keluar</string>
 </resources>
