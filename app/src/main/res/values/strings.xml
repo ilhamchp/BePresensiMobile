@@ -45,4 +45,5 @@
     <string name="dummy_status_aman">Aman</string>
     <string name="title_atur_toleransi">Atur Toleransi Keterlambatan</string>
     <string name="title_keluar">Keluar</string>
+    <string name="content_tambah_surat">Tambah Surat Baru</string>
 </resources>
