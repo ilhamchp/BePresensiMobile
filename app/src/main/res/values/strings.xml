@@ -19,4 +19,11 @@
     <string name="btn_detail_presensi">Detail Presensi</string>
     <string name="dummy_full_date">Senin, 30 Desember 2020</string>
     <string name="dummy_keterangan">Terdapat 4 matakuliah hari ini</string>
+    <string name="dummy_date">1 Desember 2020</string>
+    <string name="dummy_surat_izin">Surat Izin</string>
+    <string name="title_kode">Kode:</string>
+    <string name="title_status">Status:</string>
+    <string name="dummy_kode_surat">SuratIzin0001</string>
+    <string name="dummy_status_surat">Berhasil diproses</string>
+    <string name="dummy_title_keterangan_surat">Terdapat 4 surat yang pernah diajukan</string>
 </resources>
