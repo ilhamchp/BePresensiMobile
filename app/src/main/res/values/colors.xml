@@ -6,4 +6,5 @@
     <color name="colorSecondary">#01A39D</color>
     <color name="grey">#37000000</color>
     <color name="red">#FF0C3E</color>
+    <color name="bgColor">#F5F5F5</color>
 </resources>

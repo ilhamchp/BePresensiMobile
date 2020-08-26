@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.surat.SuratFragment">
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    tools:context=".ui.surat.SuratFragment"
+    android:background="@color/bgColor">
+    <ScrollView
+        android:id="@+id/svSurat"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="56dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="56dp">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvKeteranganSurat"
@@ -34,13 +35,15 @@
                 android:layout_marginTop="@dimen/def_margin_top"
                 tools:listitem="@layout/item_surat_mahasiswa" />
         </LinearLayout>
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabSuratBaru"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/def_margin"
-            android:contentDescription="@string/content_tambah_surat"
-            app:srcCompat="@drawable/ic_baseline_add_24"/>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</ScrollView>
+    </ScrollView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabSuratBaru"
+        app:layout_anchor="@id/svSurat"
+        app:layout_anchorGravity="end|bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/def_margin"
+        android:contentDescription="@string/content_tambah_surat"
+        app:srcCompat="@drawable/ic_baseline_add_24"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
