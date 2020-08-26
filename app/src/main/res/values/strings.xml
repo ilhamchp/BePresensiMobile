@@ -30,4 +30,17 @@
     <string name="dummy_jenis_perkuliahan">Teori</string>
     <string name="dummy_range">1 Desember 2020 – 2 Januari 2020</string>
     <string name="tv_keterangan_riwayat">Riwayat kehadiran minggu ini pada tanggal: </string>
+    <string name="dummy_role_mahasiswa">Mahasiswa</string>
+    <string name="dummy_nama">Kovalevshero Al Fayyad Yafiano</string>
+    <string name="dummy_nim">171511014</string>
+    <string name="dummy_email">kovalevshero.al.tif17@polban.ac.id</string>
+    <string name="title_rekapitulasi_kehadiran">Rekapitulasi Kehadiran</string>
+    <string name="num_15">15</string>
+    <string name="title_sakit">Sakit</string>
+    <string name="title_izin">Izin</string>
+    <string name="num_4">4</string>
+    <string name="title_alfa">Alfa</string>
+    <string name="num_0">0</string>
+    <string name="title_status_only">Status</string>
+    <string name="dummy_status_aman">Aman</string>
 </resources>
