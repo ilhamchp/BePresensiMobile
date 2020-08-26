@@ -22,6 +22,15 @@
 
             <!-- Title, secondary and supporting text -->
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvJenisPerkuliahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/dummy_jenis_perkuliahan"
+                android:textAppearance="?attr/textAppearanceOverline" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvNamaMatakuliah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

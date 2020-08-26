@@ -36,7 +36,6 @@
                 android:id="@+id/tvTglSurat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/def_margin_near"
                 android:ellipsize="marquee"
                 android:scrollHorizontally="true"
                 android:singleLine="true"

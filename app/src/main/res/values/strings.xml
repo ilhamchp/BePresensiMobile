@@ -27,4 +27,5 @@
     <string name="dummy_status_surat">Berhasil diproses</string>
     <string name="dummy_title_keterangan_surat">Terdapat 4 surat yang pernah diajukan</string>
     <string name="content_foto_surat">Foto Surat Izin</string>
+    <string name="dummy_jenis_perkuliahan">Teori</string>
 </resources>
